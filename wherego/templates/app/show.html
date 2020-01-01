@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>show html</title>
+</head>
+<body>
+
+<h1>This is a show</h1>
+<p>This is a show.</p>
+
+what
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+<!--                <th>working_exp</th>-->
+                <th>city</th>
+                <th>avg_house_price</th>
+<!--                <th>salary</th>-->
+                <th>city_house_count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for city in house_list %}
+                <tr>
+                    <td>{{ city.city }}</td>
+                    <td>{{ city.city_all_avg_house_price }}</td>
+                     <td>{{ city.city_house_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

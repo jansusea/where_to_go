@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>我们该去哪儿</title>
+  <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}">
+</head>
+<body>
+
+<div class="layui-header layui-bg-black" >
+  <div class="layui-container">
+     <ul class="layui-nav" >
+         <li class="layui-nav-item layui-this" ><a href="home" target="iframePage">主页</a></li>
+         <li class="layui-nav-item"><a href="analysis" target="iframePage">综合分析</a></li>
+        <li class="layui-nav-item "><a href="work" target="iframePage">工作数据</a></li>
+        <li class="layui-nav-item"><a href="house" target="iframePage">房价数据</a></li>
+        <li class="layui-nav-item"><a href="test" target="iframePage">测试界面</a></li>
+        <li class="layui-nav-item"><a href="">其它情况</a></li>
+     </ul>
+  </div>
+</div>
+
+<div class="layui-body" >
+    <!-- 内容主题区域 style="overflow: hidden" -->
+
+      <iframe src="home" id="iframePage" name="iframePage" style="height: 100%; width: 100%" frameborder="no"
+              border="0" ></iframe>
+</div>
+
+<!--  <div class="layui-footer">-->
+<!--    &lt;!&ndash; 底部固定区域 &ndash;&gt;-->
+<!--    © janhua - 底部固定区域-->
+<!--  </div>-->
+<!--</div>-->
+
+<script src="{% static 'layui/layui.js' %}"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  $('.layui-nav-item a').click(function(){
+      var href=$(this).attr('href');
+       console.log(href)
+      // var h=href.indexOf('#');
+
+      var h1=href.substring(0,href.length);
+      $('iframe').attr('src',h1)
+    })
+});
+</script>
+</body>
+</html>

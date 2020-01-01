@@ -15,6 +15,14 @@ class LianJiaSpider(scrapy.Spider):
         "https://www.lianjia.com/city/"
     ]
 
+    proxies = {
+        "http": "http://111.155.124.78:8123"  # 代理ip
+    }
+
+    custom_settings = {
+        'DOWNLOAD_DELAY': 6
+    }
+
     def parse(self, response):
         tools.writeLog("lianjia", "start")
 
@@ -118,7 +126,8 @@ class LianJiaSpider(scrapy.Spider):
             'address6': address6,
             'address7': address7,
             'address8': address8,
-            'address9': address9,
+            # 'address9': address9,
+            'address9': address1.replace("二手房成交", ""),
             'address10': address10,
             'url': response.url
         })
